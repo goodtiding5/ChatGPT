@@ -1,11 +1,11 @@
 # Use a Node.js base image
-FROM node:19
+FROM node:19-alpine
 
 # Set the working directory
 WORKDIR /app
 
-# Clone the project repository
-RUN git clone https://github.com/PawanOsman/ChatGPT.git /app
+# Copy source code
+COPY . .
 
 # Install dependencies
 RUN npm install
@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 3040
 
 # Command to run the start script
-CMD ["bash", "start.sh"]
+CMD ["sh", "start.sh"]
